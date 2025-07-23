@@ -25,11 +25,10 @@ public class AgenteModel {
 
     }
 
-    public AgenteModel(String nome, String email, int idade, TipoAgentes tipoAgentes) {
+    public AgenteModel(String nome, String email, int idade) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
-        this.tipoAgentes = tipoAgentes;
     }
 
     public String getNome() {
