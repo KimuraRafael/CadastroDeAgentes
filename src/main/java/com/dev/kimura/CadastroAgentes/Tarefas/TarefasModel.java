@@ -12,6 +12,9 @@ public class TarefasModel {
     private Long id;
     private String descricao;
     private String gravidade;
+
+    // OneToMany é a notation que define o relacionamento de 1 para N
+    @OneToMany(mappedBy = "tarefas")
     private AgenteModel agentes;
 
     public TarefasModel(){

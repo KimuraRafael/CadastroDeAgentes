@@ -15,11 +15,19 @@ public class AgenteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
     private TipoAgentes tipoAgentes;
-    private List<TarefasModel> tarefas;
+
+    // ManyToOne é a notation para definir o relacionamento de N para 1
+    @ManyToOne
+    @JoinColumn(name = "tarefas_id") //Definindo Chave Estrangeira
+    private TarefasModel tarefas;
 
     public AgenteModel(){
 
