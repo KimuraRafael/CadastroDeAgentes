@@ -2,8 +2,15 @@ package com.dev.kimura.CadastroAgentes.Tarefas;
 
 import com.dev.kimura.CadastroAgentes.Agentes.AgenteModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tarefas")
 public class TarefasModel {
 
@@ -17,37 +24,5 @@ public class TarefasModel {
     @OneToMany(mappedBy = "tarefas")
     private AgenteModel agentes;
 
-    public TarefasModel(){
 
-    }
-
-    public TarefasModel(String descricao, String gravidade, AgenteModel agentes) {
-        this.descricao = descricao;
-        this.gravidade = gravidade;
-        this.agentes = agentes;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getGravidade() {
-        return gravidade;
-    }
-
-    public void setGravidade(String gravidade) {
-        this.gravidade = gravidade;
-    }
-
-    public AgenteModel getAgentes() {
-        return agentes;
-    }
-
-    public void setAgentes(AgenteModel agentes) {
-        this.agentes = agentes;
-    }
 }
