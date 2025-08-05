@@ -22,12 +22,18 @@ public class AgenteModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String nome;
 
+    @Column(unique = true)
     private String email;
 
     private int idade;
 
+    @Column(name = "Foto_Agente")
+    private String urlImage;
+
+    @Column(name = "Tipo_Agente")
     private TipoAgentes tipoAgentes;
 
     // ManyToOne é a notation para definir o relacionamento de N para 1

@@ -20,9 +20,6 @@ public class TarefasModel {
 
     private String descricao;
 
-    @Column(unique = true)
-    private String email;
-
     private String responsabilidade;
 
     // OneToMany é a notation que define o relacionamento de 1 para N
