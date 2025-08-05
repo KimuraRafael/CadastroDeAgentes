@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class AgenteController {
 
-    @GetMapping("/welcome")
+    @GetMapping("/")
     public String bemVindo(){
         return "Bem vindo! este projeto é obra de Rafael Kimura, e provavelmente ele ainda estava treinando Spring!";
     }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 @Entity
 @Data
@@ -24,7 +26,7 @@ public class TarefasModel {
 
     // OneToMany é a notation que define o relacionamento de 1 para N
     @OneToMany(mappedBy = "tarefas")
-    private AgenteModel agentes;
+    private List<AgenteModel> agentes;
 
 
 }
