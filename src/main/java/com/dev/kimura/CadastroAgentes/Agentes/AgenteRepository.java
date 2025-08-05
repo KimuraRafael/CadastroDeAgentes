@@ -1,4 +1,4 @@
 package com.dev.kimura.CadastroAgentes.Agentes;
 
-public class AgenteRepository {
+public interface AgenteRepository {
 }
