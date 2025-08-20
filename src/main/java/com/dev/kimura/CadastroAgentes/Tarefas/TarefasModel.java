@@ -1,6 +1,7 @@
 package com.dev.kimura.CadastroAgentes.Tarefas;
 
 import com.dev.kimura.CadastroAgentes.Agentes.AgenteModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class TarefasModel {
 
     // OneToMany é a notation que define o relacionamento de 1 para N
     @OneToMany(mappedBy = "tarefas")
+    @JsonIgnore
     private List<AgenteModel> agentes;
 
 

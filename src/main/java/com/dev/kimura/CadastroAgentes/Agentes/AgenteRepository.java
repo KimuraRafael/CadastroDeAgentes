@@ -1,4 +1,6 @@
 package com.dev.kimura.CadastroAgentes.Agentes;
 
-public interface AgenteRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AgenteRepository extends JpaRepository<AgenteModel, Long> {
 }
