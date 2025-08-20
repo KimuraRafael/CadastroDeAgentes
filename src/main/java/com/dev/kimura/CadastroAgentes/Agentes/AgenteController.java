@@ -2,9 +2,17 @@ package com.dev.kimura.CadastroAgentes.Agentes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping
 public class AgenteController {
+
+    private AgenteService agenteService;
+
+    AgenteController(AgenteService agenteService){
+        this.agenteService = agenteService;
+    }
 
     @GetMapping("/")
     public String bemVindo(){
@@ -19,8 +27,8 @@ public class AgenteController {
 
     // Exibir todos os Agentes (Read)
     @GetMapping("/todos")
-    public String exibirTodosAgentes(){
-        return "Mostrar todos agentes";
+    public List<AgenteModel> listarAgentes(){
+        return agenteService.listarAgentes();
     }
 
     // Exibir apenas um Agente (Read)
