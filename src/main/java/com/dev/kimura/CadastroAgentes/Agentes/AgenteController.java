@@ -26,15 +26,16 @@ public class AgenteController {
     }
 
     // Exibir todos os Agentes (Read)
-    @GetMapping("/todos")
+    @GetMapping("/listarAgente")
     public List<AgenteModel> listarAgentes(){
         return agenteService.listarAgentes();
     }
 
     // Exibir apenas um Agente (Read)
-    @GetMapping("/todosID")
-    public String exibirAgentePorID(){
-        return "Mostrar agentes por ID";
+    @GetMapping("/listarAgente/{id}")
+    public AgenteModel listarAgentePorID(@PathVariable Long id){
+
+        return agenteService.listarAgentePorId(id);
     }
 
     // Alterar os dados dos Agentes (Update)

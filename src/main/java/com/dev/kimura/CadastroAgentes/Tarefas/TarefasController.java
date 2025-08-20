@@ -2,14 +2,27 @@ package com.dev.kimura.CadastroAgentes.Tarefas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("tarefas")
 public class TarefasController {
 
+    private TarefasService tarefasService;
 
-    @GetMapping("/listar")
-    public String listarTarefas(){
-        return "Tarefas listadas com sucesso";
+    public TarefasController(TarefasService tarefasService) {
+        this.tarefasService = tarefasService;
+    }
+
+    @GetMapping("/listarTarefa")
+    public List<TarefasModel> listarTarefas(){
+
+        return tarefasService.listarTarefas();
+    }
+
+    @GetMapping("/listarTarefa/{id}")
+    public TarefasModel listarTarefasPorId(@PathVariable Long id){
+        return tarefasService.listarTarefaPorId(id);
     }
 
 
