@@ -28,4 +28,9 @@ public class AgenteService {
 
         return agentePorId.orElse(null);
     }
+
+    public AgenteModel criarNovoAgente(AgenteModel agenteModel){
+
+        return agenteRepository.save(agenteModel);
+    }
 }

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping()
 public class AgenteController {
 
     private AgenteService agenteService;
@@ -19,11 +19,7 @@ public class AgenteController {
         return "Bem vindo! este projeto é obra de Rafael Kimura, e provavelmente ele ainda estava treinando Spring!";
     }
 
-    // Adicionar um Agente (Create)
-    @PostMapping("/criar")
-    public String criarAgente(){
-        return "algo";
-    }
+
 
     // Exibir todos os Agentes (Read)
     @GetMapping("/listarAgente")
@@ -36,6 +32,13 @@ public class AgenteController {
     public AgenteModel listarAgentePorID(@PathVariable Long id){
 
         return agenteService.listarAgentePorId(id);
+    }
+
+    // Adicionar um Agente (Create)
+    @PostMapping("/criarAgente")
+    public AgenteModel criarAgente(@RequestBody AgenteModel agente){
+
+        return agenteService.criarNovoAgente(agente);
     }
 
     // Alterar os dados dos Agentes (Update)
