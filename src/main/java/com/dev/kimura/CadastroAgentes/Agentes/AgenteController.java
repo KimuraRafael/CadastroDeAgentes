@@ -30,14 +30,12 @@ public class AgenteController {
     // Exibir apenas um Agente (Read)
     @GetMapping("/listarAgente/{id}")
     public AgenteModel listarAgentePorID(@PathVariable Long id){
-
         return agenteService.listarAgentePorId(id);
     }
 
     // Adicionar um Agente (Create)
     @PostMapping("/criarAgente")
     public AgenteModel criarAgente(@RequestBody AgenteModel agente){
-
         return agenteService.criarNovoAgente(agente);
     }
 
@@ -49,9 +47,9 @@ public class AgenteController {
 
     // Deletar um Agente (Delete)
 
-    @DeleteMapping ("/deletarID")
-    public String deletarAgentePorID(){
-        return "Agente Deletado por ID";
+    @DeleteMapping ("/deletarAgente/{id}")
+    public void deletarAgentePorID(@PathVariable Long id){
+        agenteService.deletarAgentePorId(id);
     }
 
 

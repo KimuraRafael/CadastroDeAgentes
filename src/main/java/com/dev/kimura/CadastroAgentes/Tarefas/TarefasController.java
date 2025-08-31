@@ -14,7 +14,7 @@ public class TarefasController {
         this.tarefasService = tarefasService;
     }
 
-    @GetMapping("/listarTarefa")
+    @GetMapping("/listarTarefas")
     public List<TarefasModel> listarTarefas(){
 
         return tarefasService.listarTarefas();
@@ -26,9 +26,10 @@ public class TarefasController {
     }
 
 
-    @PostMapping("/criar")
-    public String criarTarefa(){
-        return "Tarefa criada com sucesso";
+    @PostMapping("/criarTarefa")
+    public TarefasModel criarTarefa(@RequestBody TarefasModel tarefasModel){
+
+        return tarefasService.criarTarefa(tarefasModel);
     }
 
     @PutMapping("/alterar")
@@ -36,9 +37,10 @@ public class TarefasController {
         return "Tarefa alterada com sucesso";
     }
 
-    @DeleteMapping("/deletar")
-    public String deletarTarefa(){
-        return "Tarefa deletada com sucesso";
+    @DeleteMapping("/deletarTarefa/{id}")
+    public void deletarTarefaPorId(@PathVariable Long id){
+
+        tarefasService.deletarTarefaPorId(id);
     }
 
 }

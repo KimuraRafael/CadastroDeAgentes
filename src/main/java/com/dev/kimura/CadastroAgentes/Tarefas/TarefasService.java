@@ -24,4 +24,12 @@ public class TarefasService {
         Optional<TarefasModel> tarefaPorId = tarefasRepository.findById(id);
         return tarefaPorId.orElse(null);
     }
+
+    public TarefasModel criarTarefa(TarefasModel tarefasModel){
+        return tarefasRepository.save(tarefasModel);
+    }
+
+    public void deletarTarefaPorId(Long id){
+        tarefasRepository.deleteById(id);
+    }
 }

@@ -16,12 +16,13 @@ public class AgenteService {
          this.agenteRepository = agenteRepository;
      }
 
-     //Listar meus Agentes
+     // Função para listar meus Agentes
     public List<AgenteModel> listarAgentes(){
 
          return agenteRepository.findAll();
     }
 
+    // Função para listar um agente específico
     public AgenteModel listarAgentePorId(Long id){
 
         Optional<AgenteModel> agentePorId = agenteRepository.findById(id);
@@ -29,8 +30,14 @@ public class AgenteService {
         return agentePorId.orElse(null);
     }
 
+    // Função para criar um novo agente
     public AgenteModel criarNovoAgente(AgenteModel agenteModel){
 
         return agenteRepository.save(agenteModel);
+    }
+
+    // Delete tem que ser um metodo void pois não há necessidade retornar nada para o servidor
+    public void deletarAgentePorId(Long id){
+        agenteRepository.deleteById(id);
     }
 }
