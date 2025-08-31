@@ -32,9 +32,10 @@ public class TarefasController {
         return tarefasService.criarTarefa(tarefasModel);
     }
 
-    @PutMapping("/alterar")
-    public String alterarTarefa(){
-        return "Tarefa alterada com sucesso";
+    @PutMapping("/atualizaTarefa/{id}")
+    public TarefasModel atualizaTarefa(@PathVariable Long id, @RequestBody TarefasModel tarefaAtualizada){
+
+        return tarefasService.atualizaTarefas(id, tarefaAtualizada);
     }
 
     @DeleteMapping("/deletarTarefa/{id}")

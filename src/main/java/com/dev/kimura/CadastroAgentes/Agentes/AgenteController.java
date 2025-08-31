@@ -1,5 +1,6 @@
 package com.dev.kimura.CadastroAgentes.Agentes;
 
+import org.aspectj.weaver.loadtime.Agent;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,13 +41,12 @@ public class AgenteController {
     }
 
     // Alterar os dados dos Agentes (Update)
-    @PutMapping ("/alterarID")
-    public String alteraAgentePorID(){
-        return "Alterar agentes por ID";
+    @PutMapping ("/atualizarAgente/{id}")
+    public AgenteModel atualizarAgentePorID(@PathVariable Long id, @RequestBody AgenteModel agenteAtualizado){
+       return agenteService.atualizarAgente(id, agenteAtualizado);
     }
 
     // Deletar um Agente (Delete)
-
     @DeleteMapping ("/deletarAgente/{id}")
     public void deletarAgentePorID(@PathVariable Long id){
         agenteService.deletarAgentePorId(id);

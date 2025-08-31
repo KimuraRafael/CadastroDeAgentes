@@ -40,4 +40,13 @@ public class AgenteService {
     public void deletarAgentePorId(Long id){
         agenteRepository.deleteById(id);
     }
+
+    public AgenteModel atualizarAgente(Long id, AgenteModel agenteAtualizado){
+
+        if(agenteRepository.existsById(id)){
+            agenteAtualizado.setId(id);
+            return agenteRepository.save(agenteAtualizado);
+        }
+        return null;
+    }
 }
