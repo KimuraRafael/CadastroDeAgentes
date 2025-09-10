@@ -24,25 +24,25 @@ public class AgenteController {
 
     // Exibir todos os Agentes (Read)
     @GetMapping("/listarAgente")
-    public List<AgenteModel> listarAgentes(){
+    public List<AgenteDTO> listarAgentes(){
         return agenteService.listarAgentes();
     }
 
     // Exibir apenas um Agente (Read)
     @GetMapping("/listarAgente/{id}")
-    public AgenteModel listarAgentePorID(@PathVariable Long id){
+    public AgenteDTO listarAgentePorID(@PathVariable Long id){
         return agenteService.listarAgentePorId(id);
     }
 
     // Adicionar um Agente (Create)
     @PostMapping("/criarAgente")
-    public AgenteModel criarAgente(@RequestBody AgenteModel agente){
+    public AgenteDTO criarAgente(@RequestBody AgenteDTO agente){
         return agenteService.criarNovoAgente(agente);
     }
 
     // Alterar os dados dos Agentes (Update)
     @PutMapping ("/atualizarAgente/{id}")
-    public AgenteModel atualizarAgentePorID(@PathVariable Long id, @RequestBody AgenteModel agenteAtualizado){
+    public AgenteDTO atualizarAgentePorID(@PathVariable Long id, @RequestBody AgenteDTO agenteAtualizado){
        return agenteService.atualizarAgente(id, agenteAtualizado);
     }
 
