@@ -19,7 +19,7 @@ public class AgenteDTO {
         private String nivelDeDemanda ;
         private String urlImage;
         private TipoAgentes tipoAgentes;
-        private TarefasModel tarefas;
+
 
 
 }
