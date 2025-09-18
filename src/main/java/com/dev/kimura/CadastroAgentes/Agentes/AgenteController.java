@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping()
 public class AgenteController {
 
-    private AgenteService agenteService;
+    private final AgenteService agenteService;
 
     AgenteController(AgenteService agenteService) {
         this.agenteService = agenteService;

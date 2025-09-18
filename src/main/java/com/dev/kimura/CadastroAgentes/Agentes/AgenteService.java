@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 @Service
 public class AgenteService {
 
-    private AgenteRepository agenteRepository;
-    private AgenteMapper agenteMapper;
+    private final AgenteRepository agenteRepository;
+    private final AgenteMapper agenteMapper;
 
     public AgenteService(AgenteRepository agenteRepository, AgenteMapper agenteMapper){
          this.agenteRepository = agenteRepository;

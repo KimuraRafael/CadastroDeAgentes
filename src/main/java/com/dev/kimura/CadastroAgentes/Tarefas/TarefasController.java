@@ -12,7 +12,7 @@ import java.util.Map;
 @RequestMapping("tarefas")
 public class TarefasController {
 
-    private TarefasService tarefasService;
+    private final TarefasService tarefasService;
 
     public TarefasController(TarefasService tarefasService) {
         this.tarefasService = tarefasService;
