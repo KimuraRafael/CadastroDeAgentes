@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Agentes</title>
+</head>
+<body>
+<h1>Lista de Agentes</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Código</th>
+        <th>Foto de Cadastro</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Idade</th>
+        <th>Nível de Demanda</th>
+        <th>Cargo do Agente</th>
+        <th>Tarefas</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="agente : ${agentes}">
+        <td th:text="${agente.id}"></td>
+        <td><img th:src="${agente.urlImage}"></td>
+        <td th:text="${agente.nome}"></td>
+        <td th:text="${agente.email}"></td>
+        <td th:text="${agente.idade}"></td>
+        <td th:text="${agente.nivelDeDemanda}"></td>
+        <td th:text="${agente.tipoAgentes}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
