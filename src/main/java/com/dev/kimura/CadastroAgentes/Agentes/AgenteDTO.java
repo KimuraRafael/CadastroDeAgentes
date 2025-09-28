@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +21,7 @@ public class AgenteDTO {
         private String nivelDeDemanda ;
         private String urlImage;
         private TipoAgentes tipoAgentes;
-
+        private TarefasModel tarefas;
 
 
 }

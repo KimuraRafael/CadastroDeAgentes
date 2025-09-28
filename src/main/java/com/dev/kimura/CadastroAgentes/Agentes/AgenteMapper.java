@@ -15,6 +15,7 @@ public class AgenteMapper {
         agenteModel.setNivelDeDemanda(agenteDTO.getNivelDeDemanda());
         agenteModel.setUrlImage(agenteDTO.getUrlImage());
         agenteModel.setIdade(agenteDTO.getIdade());
+        agenteModel.setTarefas(agenteDTO.getTarefas());
 
         return agenteModel;
     }
@@ -29,7 +30,7 @@ public class AgenteMapper {
         agenteDTO.setNivelDeDemanda(agenteModel.getNivelDeDemanda());
         agenteDTO.setUrlImage(agenteModel.getUrlImage());
         agenteDTO.setIdade(agenteModel.getIdade());
-
+        agenteDTO.setTarefas(agenteModel.getTarefas());
         return agenteDTO;
     }
 }
