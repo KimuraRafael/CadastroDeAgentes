@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Lista de Agentes</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <h1>Lista de Agentes</h1>
@@ -18,17 +20,28 @@
         <th>Nível de Demanda</th>
         <th>Cargo do Agente</th>
         <th>Tarefas</th>
+        <th>Ações</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="agente : ${agentes}">
         <td th:text="${agente.id}"></td>
-        <td><img th:src="${agente.urlImage}"></td>
-        <td th:text="${agente.nome}"></td>
-        <td th:text="${agente.email}"></td>
+        <td><img th:src="${agente.urlImage}" width="100" height="100"></td>
+        <td data-label="Nome" th:text="${agente.nome}"></td>
+        <td data-label="Email" th:text="${agente.email}"></td>
         <td th:text="${agente.idade}"></td>
         <td th:text="${agente.nivelDeDemanda}"></td>
         <td th:text="${agente.tipoAgentes}"></td>
+        <td>
+            <span th:if="${agente.tarefas != null}" th:text="${agente.tarefas.descricao}"></span>
+            <span th:if="${agente.tarefas == null}">Este Agente não foi alocado para nenhuma tarefa</span>
+        </td>
+
+        <td>
+            <button class="view">Ver Detalhes</button>
+            <button class="edit">Alterar</button>
+            <button class="delete" th:href="@{/agentes/ui/deletarAgente/{id}(id=${agente.id})}">Deletar</button>
+        </td>
     </tr>
     </tbody>
 </table>
