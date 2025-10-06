@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Lista de Agentes</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/listagemStyle.css">
 </head>
 <body>
 <h1>Lista de Agentes</h1>
+<div class="list-header">
+    <a th:href="@{/agentes/ui/novoAgente}" class="add-btn">+ Novo Agente</a>
+</div>
 <table>
     <thead>
     <tr>
@@ -38,10 +42,11 @@
         </td>
 
         <td>
-            <button class="view">Ver Detalhes</button>
-            <button class="edit">Alterar</button>
-            <button class="delete" th:href="@{/agentes/ui/deletarAgente/{id}(id=${agente.id})}">Deletar</button>
+            <a class="view" th:href="@{/agentes/ui/listarAgente/{id}(id=${agente.id})}">Ver Detalhes</a>
+            <a class="edit" th:href="@{/agentes/ui/editarAgente/{id}(id=${agente.id})}">Alterar</a>
+            <a class="delete" th:href="@{/agentes/ui/deletarAgente/{id}(id=${agente.id})}">Deletar</a>
         </td>
+
     </tr>
     </tbody>
 </table>

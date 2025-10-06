@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhes do Agente</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/detalhesStyle.css">
+</head>
+<body>
+
+<div class="card">
+    <header class="card-header">
+        <div class="header-content">
+        <img class="profile-pic" th:src="${agente.urlImage}" alt="Foto do Agente">
+        <div class="header-info">
+            <h1 th:text="${agente.nome}">Nome do Agente</h1>
+            <h2 class="role"  th:text="'Cargo: ' + ${agente.tipoAgentes}">Função</h2>
+        </div>
+        </div>
+    </header>
+
+    <div class="card-content">
+        <div class="info-section">
+            <h2>📌 Informações</h2>
+            <p><strong>Código:</strong> <span th:text="${agente.id}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${agente.email}"></span></p>
+            <p><strong>Idade:</strong> <span th:text="${agente.idade}"></span></p>
+        </div>
+
+        <div class="task-section">
+            <h2>🗂️ Tarefa</h2>
+            <p th:if="${agente.tarefas != null}" th:text="${agente.tarefas.descricao}"></p>
+            <p><strong>Nível de Demanda:</strong> <span th:text="${agente.nivelDeDemanda}"></span></p>
+            <span th:if="${agente.tarefas == null}">Este Agente não foi alocado para nenhuma tarefa</span>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <a th:href="@{/agentes/ui/listarAgentes}" class="back-btn">← Voltar</a>
+    </div>
+</div>
+
+</body>
+</html>

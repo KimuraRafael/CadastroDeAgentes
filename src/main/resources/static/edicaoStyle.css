@@ -1,0 +1,115 @@
+.card {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px var(--sombra);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+/* Cabeçalho */
+.card-header {
+  background: linear-gradient(135deg, var(--roxo-escuro), var(--roxo));
+  padding: 1.5rem;
+  color: #fff;
+  text-align: center;
+  border-radius: 16px 16px 0 0;
+}
+
+.card-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Conteúdo */
+.card-content {
+  padding: 30px 40px;
+}
+
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Campos do formulário */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: var(--roxo-escuro);
+  margin-bottom: 6px;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--roxo);
+  outline: none;
+  box-shadow: 0 0 5px var(--roxo-claro);
+}
+
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23A47DFF' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+/* Ações */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.save-btn {
+  background: var(--roxo);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.save-btn:hover {
+  background: var(--roxo-escuro);
+}
+
+.cancel-btn {
+  background: var(--destaque);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #e67e22;
+}

@@ -8,7 +8,7 @@
   --sombra: rgba(0, 0, 0, 0.08);
 }
 
-/* Body */
+/* Body global */
 body {
   background: var(--fundo);
   color: var(--texto);
@@ -18,7 +18,7 @@ body {
   line-height: 1.6;
 }
 
-/* Título */
+/* Títulos */
 h1 {
   text-align: center;
   color: var(--roxo-escuro);
@@ -27,54 +27,10 @@ h1 {
   font-weight: 600;
 }
 
-/* Container da tabela */
-.table-container {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px var(--sombra);
-  padding: 30px;
-  overflow-x: auto;
-}
-
-/* Tabela */
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 0.95rem;
-}
-
-/* Cabeçalho */
-th {
-  background: var(--roxo-escuro);
+/* Botões */
+a {
   color: #fff;
-  padding: 15px 12px;
-  text-align: left;
-  border-radius: 8px 8px 0 0;
-  font-weight: 600;
-}
-
-/* Linhas */
-td {
-  padding: 14px 12px;
-  border-bottom: 1px solid #E0E0E0;
-  transition: background-color 0.2s;
-}
-
-/* Alternância de cores */
-tr:nth-child(even) {
-  background-color: var(--roxo-claro);
-}
-
-tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-
-
-/* Estilo base do botão */
-button {
-  color: #fff;
+  text-decoration: none;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
@@ -83,35 +39,28 @@ button {
   transition: background 0.3s, transform 0.2s;
 }
 
-/* Visualizar detalhes */
-button.view {
+a.view {
   background: var(--roxo);
-  color: #fff;
 }
-
-button.view:hover {
+a.view:hover {
   background: var(--roxo-escuro);
 }
 
-/* Editar */
-button.edit {
+a.edit {
   background: var(--destaque);
 }
-
-button.edit:hover {
+a.edit:hover {
   background: #E67E22;
 }
 
-/* Excluir */
-button.delete {
+a.delete {
   background: #E53935;
 }
-
-button.delete:hover {
+a.delete:hover {
   background: #B71C1C;
 }
 
-/* Imagens de perfil */
+/* Imagens */
 img {
   width: 70px;
   height: 70px;

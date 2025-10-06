@@ -1,0 +1,109 @@
+.card {
+  max-width: 700px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px var(--sombra);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #7A4FD5, #9D7DFF);
+  border-radius: 12px 12px 0 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  padding: 1.5rem 2rem 1.5rem 0.8rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+}
+
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: left;
+ }
+
+.header-info h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.header-info .role {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  color: #E5DFFF;
+  opacity: 0.9;
+}
+
+/* Conteúdo */
+.card-content {
+  padding: 25px;
+}
+
+.info-section,
+.task-section {
+  background: var(--roxo-claro);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.info-section h2,
+.task-section h2 {
+  margin-top: 0;
+  color: var(--roxo-escuro);
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 6px 0;
+  color: var(--texto);
+}
+
+/* Rodapé */
+.card-footer {
+  text-align: right;
+  padding: 15px 25px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+.back-btn {
+  background: var(--destaque);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #E67E22;
+}

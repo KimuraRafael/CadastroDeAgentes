@@ -52,13 +52,22 @@ public class AgenteService {
     // Função de Atualização de dados, a ideia é sobreescrever dados existentes recebendo as alterações entregues pelos usuários.
     public AgenteDTO atualizarAgente(Long id, AgenteDTO agenteAlterado){
 
-        Optional<AgenteModel> agenteExistente = agenteRepository.findById(id);
-        if(agenteExistente.isPresent()){
-            AgenteModel agenteAtualizado = agenteMapper.map(agenteAlterado);
-            agenteAtualizado.setId(id);
-            AgenteModel agenteSalvo = agenteRepository.save(agenteAtualizado);
-            return agenteMapper.map(agenteSalvo);
-        }
-        return null;
+        return agenteRepository.findById(id).map(agenteExistente -> {
+            if (agenteAlterado.getNome() != null) {
+                agenteExistente.setNome(agenteAlterado.getNome());
+            }
+            if (agenteAlterado.getEmail() != null) {
+                agenteExistente.setEmail(agenteAlterado.getEmail());
+            }
+            if (agenteAlterado.getIdade() > 0) {
+                agenteExistente.setIdade(agenteAlterado.getIdade());
+            }
+            if (agenteAlterado.getNivelDeDemanda() != null) {
+                agenteExistente.setNivelDeDemanda(agenteAlterado.getNivelDeDemanda());
+            }
+
+            AgenteModel salvo = agenteRepository.save(agenteExistente);
+            return agenteMapper.map(salvo);
+        }).orElse(null);
     }
 }
