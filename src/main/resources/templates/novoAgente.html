@@ -3,60 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicione um novo Agente</title>
+    <title>Editar Agente</title>
     <link rel="stylesheet" href="/base.css">
     <link rel="stylesheet" href="/edicaoStyle.css">
 </head>
 <body>
-<h1>Adicione um novo Agente</h1>
+<h1>Editar Agente</h1>
+
 <div class="card">
     <header class="card-header">
-        <h1>Dados do novo Colaborador</h1>
+        <img class="profile-pic" th:src="${agente.urlImage}" alt="Foto do Agente">
     </header>
 
-
     <div class="card-content">
-        <form th:action="@{/agentes/ui/salvarAgente}" method="post">
+        <!-- Adicione th:object -->
+        <form th:action="@{/agentes/ui/atualizarAgente/{id}(id=${agente.id})}" method="post" th:object="${agente}">
 
             <div class="form-group">
-                <label>URL da Imagem de Foto de Perfil:</label>
-                <input type="text" name="urlImage" th:value="${agente.urlImage}" required>
+                <label>URL da Imagem de Perfil:</label>
+                <input type="text" th:field="*{urlImage}" required>
             </div>
 
             <div class="form-group">
                 <label>Nome:</label>
-                <input type="text" name="nome" th:value="${agente.nome}" required>
+                <input type="text" th:field="*{nome}" required>
             </div>
 
             <div class="form-group">
                 <label>Email:</label>
-                <input type="email" name="email" th:value="${agente.email}" required>
+                <input type="email" th:field="*{email}" required>
             </div>
 
             <div class="form-group">
                 <label>Idade:</label>
-                <input type="number" name="idade" th:value="${agente.idade}" required>
+                <input type="number" th:field="*{idade}" required>
             </div>
 
             <div class="form-group">
                 <label for="tipoAgentes">Tipo de Agente:</label>
-
                 <select id="tipoAgentes" th:field="*{tipoAgentes}" required>
                     <option value="">-- Selecione um tipo --</option>
-
                     <option th:each="tipo : ${T(com.dev.kimura.CadastroAgentes.Enums.TipoAgentes).values()}"
                             th:value="${tipo}"
-                            th:text="${tipo}">
+                            th:text="${#strings.capitalize(#strings.replace(tipo.name(), '_', ' ').toLowerCase())}">
                     </option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label>Tipo de Agente:</label>
-                <select name="tipoAgentes" required>
-                    <option th:selected="${agente.nivelDeDemanda == 'Fácil'}" value="Fácil">Fácil</option>
-                    <option th:selected="${agente.nivelDeDemanda == 'Médio'}" value="Médio">Médio</option>
-                    <option th:selected="${agente.nivelDeDemanda == 'Difícil'}" value="Difícil">Difícil</option>
+                <label>Nível de Demanda:</label>
+                <select th:field="*{nivelDeDemanda}" required>
+                    <option value="">-- Selecione o nível --</option>
+                    <option value="Fácil">Fácil</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Difícil">Difícil</option>
                 </select>
             </div>
 

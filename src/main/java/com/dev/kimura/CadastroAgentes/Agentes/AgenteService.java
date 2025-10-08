@@ -65,7 +65,12 @@ public class AgenteService {
             if (agenteAlterado.getNivelDeDemanda() != null) {
                 agenteExistente.setNivelDeDemanda(agenteAlterado.getNivelDeDemanda());
             }
-
+            if (agenteAlterado.getUrlImage() != null) {
+                agenteExistente.setUrlImage(agenteAlterado.getUrlImage());
+            }
+            if (agenteAlterado.getTipoAgentes() != null) {
+                agenteExistente.setTipoAgentes(agenteAlterado.getTipoAgentes());
+            }
             AgenteModel salvo = agenteRepository.save(agenteExistente);
             return agenteMapper.map(salvo);
         }).orElse(null);

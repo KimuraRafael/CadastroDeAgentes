@@ -15,29 +15,47 @@
     </header>
 
     <div class="card-content">
-        <form th:action="@{/agentes/ui/atualizarAgente/{id}(id=${agente.id})}" method="post">
+        <!-- IMPORTANTE: precisa do th:object -->
+        <form th:action="@{/agentes/ui/atualizarAgente/{id}(id=${agente.id})}"
+              th:object="${agente}" method="post">
+
+            <div class="form-group">
+                <label>URL da Imagem de Perfil:</label>
+                <input type="text" th:field="*{urlImage}" required>
+            </div>
 
             <div class="form-group">
                 <label>Nome:</label>
-                <input type="text" name="nome" th:value="${agente.nome}" required>
+                <input type="text" th:field="*{nome}" required>
             </div>
 
             <div class="form-group">
                 <label>Email:</label>
-                <input type="email" name="email" th:value="${agente.email}" required>
+                <input type="email" th:field="*{email}" required>
             </div>
 
             <div class="form-group">
                 <label>Idade:</label>
-                <input type="number" name="idade" th:value="${agente.idade}" required>
+                <input type="number" th:field="*{idade}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipoAgentes">Tipo de Agente:</label>
+                <select id="tipoAgentes" th:field="*{tipoAgentes}" required>
+                    <option value="">-- Selecione um tipo --</option>
+                    <option th:each="tipo : ${T(com.dev.kimura.CadastroAgentes.Enums.TipoAgentes).values()}"
+                            th:value="${tipo}"
+                            th:text="${tipo}">
+                    </option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label>Nível de Demanda:</label>
-                <select name="nivelDeDemanda" required>
-                    <option th:selected="${agente.nivelDeDemanda == 'Fácil'}" value="Fácil">Fácil</option>
-                    <option th:selected="${agente.nivelDeDemanda == 'Médio'}" value="Médio">Médio</option>
-                    <option th:selected="${agente.nivelDeDemanda == 'Difícil'}" value="Difícil">Difícil</option>
+                <select th:field="*{nivelDeDemanda}" required>
+                    <option value="Fácil">Fácil</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Difícil">Difícil</option>
                 </select>
             </div>
 
