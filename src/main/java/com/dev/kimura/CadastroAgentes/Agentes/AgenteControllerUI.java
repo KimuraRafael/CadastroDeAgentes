@@ -27,6 +27,7 @@ public class AgenteControllerUI {
         List<AgenteDTO> listaAgentes = agenteService.listarAgentes();
 
         model.addAttribute("agentes", listaAgentes);
+        model.addAttribute("paginaAtiva", "agentes");
         return "listarAgentes";
 
     }

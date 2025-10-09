@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutBase}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Lista de Agentes</title>
-    <link rel="stylesheet" href="/base.css">
     <link rel="stylesheet" href="/listagemStyle.css">
 </head>
 <body>
-<h1>Lista de Agentes</h1>
-<div class="list-header">
-    <a th:href="@{/agentes/ui/novoAgente}" class="add-btn">+ Novo Agente</a>
-</div>
-<table>
-    <thead>
-    <tr>
-        <th>Código</th>
-        <th>Foto de Cadastro</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Idade</th>
-        <th>Nível de Demanda</th>
-        <th>Cargo do Agente</th>
-        <th>Tarefas</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="agente : ${agentes}">
-        <td th:text="${agente.id}"></td>
-        <td><img th:src="${agente.urlImage}" width="100" height="100"></td>
-        <td data-label="Nome" th:text="${agente.nome}"></td>
-        <td data-label="Email" th:text="${agente.email}"></td>
-        <td th:text="${agente.idade}"></td>
-        <td th:text="${agente.nivelDeDemanda}"></td>
-        <td th:text="${agente.tipoAgentes}"></td>
-        <td>
-            <span th:if="${agente.tarefas != null}" th:text="${agente.tarefas.descricao}"></span>
-            <span th:if="${agente.tarefas == null}">Este Agente não foi alocado para nenhuma tarefa</span>
-        </td>
 
-        <td>
-            <a class="view" th:href="@{/agentes/ui/listarAgente/{id}(id=${agente.id})}">Ver Detalhes</a>
-            <a class="edit" th:href="@{/agentes/ui/editarAgente/{id}(id=${agente.id})}">Alterar</a>
-            <a class="delete" th:href="@{/agentes/ui/deletarAgente/{id}(id=${agente.id})}">Deletar</a>
-        </td>
+<div layout:fragment="content">
 
-    </tr>
-    </tbody>
-</table>
-</body>
+    <h1>Lista de Agentes</h1>
+    <div class="list-header">
+        <a th:href="@{/agentes/ui/novoAgente}" class="add-btn">+ Novo Agente</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Foto de Cadastro</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Idade</th>
+            <th>Nível de Demanda</th>
+            <th>Cargo do Agente</th>
+            <th>Tarefas</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="agente : ${agentes}">
+            <td th:text="${agente.id}"></td>
+            <td><img th:src="${agente.urlImage}" width="100" height="100"></td>
+            <td data-label="Nome" th:text="${agente.nome}"></td>
+            <td data-label="Email" th:text="${agente.email}"></td>
+            <td th:text="${agente.idade}"></td>
+            <td th:text="${agente.nivelDeDemanda}"></td>
+            <td th:text="${agente.tipoAgentes}"></td>
+            <td>
+                <span th:if="${agente.tarefas != null}" th:text="${agente.tarefas.descricao}"></span>
+                <span th:if="${agente.tarefas == null}">Este Agente não foi alocado para nenhuma tarefa</span>
+            </td>
+            <td>
+                <a class="view" th:href="@{/agentes/ui/listarAgente/{id}(id=${agente.id})}">Ver Detalhes</a>
+                <a class="edit" th:href="@{/agentes/ui/editarAgente/{id}(id=${agente.id})}">Alterar</a>
+                <a class="delete" th:href="@{/agentes/ui/deletarAgente/{id}(id=${agente.id})}">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div> </body>
 </html>

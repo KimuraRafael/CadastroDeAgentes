@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="sidebar" class="sidebar">
+
+        <ul>
+            <li th:classappend="${paginaAtiva == 'agentes' ? 'active' : ''}">
+                <a th:href="@{/agentes/ui/listarAgentes}">
+                    <i class="fa-solid fa-users"></i> <span>Agentes</span>
+                </a>
+            </li>
+            <li th:classappend="${paginaAtiva == 'tarefas' ? 'active' : ''}">
+                <a href="#">
+                    <i class="fa-solid fa-list-check"></i> <span>Tarefas</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-line"></i> <span>Relatórios</span>
+                </a>
+            </li>
+        </ul>
+
+</div>
+
+</body>
+</html>
