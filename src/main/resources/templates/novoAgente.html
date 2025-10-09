@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/edicaoStyle.css">
 </head>
 <body>
-<h1>Editar Agente</h1>
+<h1>Cadastrar Agente</h1>
+
 
 <div class="card">
     <header class="card-header">
@@ -16,10 +17,11 @@
     </header>
 
     <div class="card-content">
-        <!-- Adicione th:object -->
-        <form th:action="@{/agentes/ui/atualizarAgente/{id}(id=${agente.id})}" method="post" th:object="${agente}">
 
-            <div class="form-group">
+        <form th:action="@{/agentes/ui/salvarAgente}" method="post" th:object="${agente}">
+
+
+        <div class="form-group">
                 <label>URL da Imagem de Perfil:</label>
                 <input type="text" th:field="*{urlImage}" required>
             </div>
