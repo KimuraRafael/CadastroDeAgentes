@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutBase}">
+<head>
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="/listagemStyle.css">
+</head>
+<body>
+<section layout:fragment="content">
+    <h1>Lista de Tarefas</h1>
+
+    <div class="list-header">
+        <a th:href="@{/tarefas/ui/novaTarefa}" class="add-btn">+ Nova Tarefa</a>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Código Tarefa</th>
+            <th>Descrição</th>
+            <th>Nivel de Demanda</th>
+            <th>Equipe Responsável</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tarefa : ${tarefas}">
+            <td th:text="${tarefa.id}"></td>
+            <td th:text="${tarefa.descricao}"></td>
+            <td th:text="${tarefa.nivelDemanda}"></td>
+            <td>
+                <span th:if="${tarefa.agentes != null and #lists.size(tarefa.agentes) > 0}"
+                      th:text="${#strings.arrayJoin(tarefa.agentes.^[nome], ', ')}"></span>
+                <span th:if="${tarefa.agentes == null or #lists.isEmpty(tarefa.agentes)}">Não atribuído</span>
+            </td>
+            <td>
+                <a class="view" th:href="@{/tarefas/ui/listarTarefa/{id}(id=${tarefa.id})}">Ver</a>
+                <a class="edit" th:href="@{/tarefas/ui/editarTarefa/{id}(id=${tarefa.id})}">Editar</a>
+                <a class="delete" th:href="@{/tarefas/ui/deletarTarefa/{id}(id=${tarefa.id})}">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhes da Tarefa</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/detalhesStyle.css">
+</head>
+<body>
+
+<div class="card">
+    <header class="card-header">
+        <div class="header-content">
+            <img class="profile-pic" src="/images/task-icon.png" alt="Ícone da Tarefa">
+            <div class="header-info">
+                <h1 th:text="${tarefa.descricao}">Descrição da Tarefa</h1>
+                <h2 class="role" th:text="'Nivel de Demanda: ' + ${tarefa.nivelDemanda}">Nivel de Demanda</h2>
+            </div>
+        </div>
+    </header>
+
+    <div class="card-content">
+        <div class="info-section">
+            <h2>📌 Informações da Tarefa</h2>
+            <p><strong>Código:</strong> <span th:text="${tarefa.id}"></span></p>
+            <p><strong>Descrição:</strong> <span th:text="${tarefa.descricao}"></span></p>
+            <p><strong>Nivel de Demanda:</strong> <span th:text="${tarefa.nivelDemanda}"></span></p>
+        </div>
+
+        <div class="task-section">
+            <h2>👥 Agentes Alocados</h2>
+
+            <div th:if="${tarefa.agentes != null and #lists.size(tarefa.agentes) > 0}">
+                <ul>
+                    <li th:each="agente : ${tarefa.agentes}">
+                        <strong th:text="${agente.nome}"></strong>
+                        <strong th:text="${agente.responsabilidade}"></strong>
+                        (<span th:text="${agente.tipoAgentes}"></span>) -
+                        <span th:text="${agente.email}"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <p th:if="${tarefa.agentes == null or #lists.isEmpty(tarefa.agentes)}">
+                Nenhum agente foi atribuído a esta tarefa.
+            </p>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <a th:href="@{/tarefas/ui/listarTarefas}" class="back-btn">← Voltar</a>
+    </div>
+</div>
+
+</body>
+</html>
