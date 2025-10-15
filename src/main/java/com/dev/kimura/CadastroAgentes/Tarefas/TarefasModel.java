@@ -23,9 +23,11 @@ public class TarefasModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "descricao_tarefa")
     private String descricao;
 
-    private String responsabilidade;
+    @Column(name = "nivel_de_demanda")
+    private String nivelDemanda;
 
     // OneToMany é a notation que define o relacionamento de 1 para N
     @OneToMany(mappedBy = "tarefas")

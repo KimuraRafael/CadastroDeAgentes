@@ -22,7 +22,7 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Idade</th>
-            <th>Nível de Demanda</th>
+            <th>Responsabilidade</th>
             <th>Cargo do Agente</th>
             <th>Tarefas</th>
             <th>Ações</th>
@@ -35,7 +35,7 @@
             <td data-label="Nome" th:text="${agente.nome}"></td>
             <td data-label="Email" th:text="${agente.email}"></td>
             <td th:text="${agente.idade}"></td>
-            <td th:text="${agente.nivelDeDemanda}"></td>
+            <td th:text="${agente.responsabilidade}"></td>
             <td th:text="${agente.tipoAgentes}"></td>
             <td>
                 <span th:if="${agente.tarefas != null}" th:text="${agente.tarefas.descricao}"></span>

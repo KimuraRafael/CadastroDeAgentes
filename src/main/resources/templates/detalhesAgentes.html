@@ -31,7 +31,7 @@
         <div class="task-section">
             <h2>🗂️ Tarefa</h2>
             <p th:if="${agente.tarefas != null}" th:text="${agente.tarefas.descricao}"></p>
-            <p><strong>Nível de Demanda:</strong> <span th:text="${agente.nivelDeDemanda}"></span></p>
+            <p><strong>Responsabilidade em campo:</strong> <span th:text="${agente.responsabilidade}"></span></p>
             <span th:if="${agente.tarefas == null}">Este Agente não foi alocado para nenhuma tarefa</span>
         </div>
     </div>

@@ -18,7 +18,7 @@ public class AgenteDTO {
         private String nome;
         private String email;
         private int idade;
-        private String nivelDeDemanda ;
+        private String responsabilidade ;
         private String urlImage;
         private TipoAgentes tipoAgentes;
         private TarefasModel tarefas;

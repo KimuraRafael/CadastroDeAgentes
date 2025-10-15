@@ -62,8 +62,8 @@ public class AgenteService {
             if (agenteAlterado.getIdade() > 0) {
                 agenteExistente.setIdade(agenteAlterado.getIdade());
             }
-            if (agenteAlterado.getNivelDeDemanda() != null) {
-                agenteExistente.setNivelDeDemanda(agenteAlterado.getNivelDeDemanda());
+            if (agenteAlterado.getResponsabilidade() != null) {
+                agenteExistente.setResponsabilidade(agenteAlterado.getResponsabilidade());
             }
             if (agenteAlterado.getUrlImage() != null) {
                 agenteExistente.setUrlImage(agenteAlterado.getUrlImage());

@@ -69,7 +69,7 @@ public class AgenteController {
                     "nome", agenteAntigo.getNome() + " -> " + agenteAtualizado.getNome(),
                     "email", agenteAntigo.getEmail() + " -> " + agenteAtualizado.getEmail(),
                     "idade", agenteAntigo.getIdade() + " -> " + agenteAtualizado.getIdade(),
-                    "nivelDeDemanda", agenteAntigo.getNivelDeDemanda() + " -> " + agenteAtualizado.getNivelDeDemanda()
+                    "nivelDeDemanda", agenteAntigo.getResponsabilidade() + " -> " + agenteAtualizado.getResponsabilidade()
             );
             return ResponseEntity.status(HttpStatus.OK).body("Agente Alterado com Sucesso!\n" + resposta);
         }

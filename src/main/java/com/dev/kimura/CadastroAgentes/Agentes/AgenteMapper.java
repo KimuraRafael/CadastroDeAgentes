@@ -12,7 +12,7 @@ public class AgenteMapper {
         agenteModel.setNome(agenteDTO.getNome());
         agenteModel.setIdade(agenteDTO.getIdade());
         agenteModel.setEmail(agenteDTO.getEmail());
-        agenteModel.setNivelDeDemanda(agenteDTO.getNivelDeDemanda());
+        agenteModel.setResponsabilidade(agenteDTO.getResponsabilidade());
         agenteModel.setUrlImage(agenteDTO.getUrlImage());
         agenteModel.setIdade(agenteDTO.getIdade());
         agenteModel.setTarefas(agenteDTO.getTarefas());
@@ -27,7 +27,7 @@ public class AgenteMapper {
         agenteDTO.setNome(agenteModel.getNome());
         agenteDTO.setIdade(agenteModel.getIdade());
         agenteDTO.setEmail(agenteModel.getEmail());
-        agenteDTO.setNivelDeDemanda(agenteModel.getNivelDeDemanda());
+        agenteDTO.setResponsabilidade(agenteModel.getResponsabilidade());
         agenteDTO.setUrlImage(agenteModel.getUrlImage());
         agenteDTO.setIdade(agenteModel.getIdade());
         agenteDTO.setTarefas(agenteModel.getTarefas());

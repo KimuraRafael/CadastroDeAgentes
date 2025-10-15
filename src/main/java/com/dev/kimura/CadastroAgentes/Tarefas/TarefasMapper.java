@@ -15,7 +15,7 @@ public class TarefasMapper {
         TarefasModel tarefasModel = new TarefasModel();
         tarefasModel.setId(tarefasDTO.getId());
         tarefasModel.setDescricao(tarefasDTO.getDescricao());
-        tarefasModel.setResponsabilidade(tarefasDTO.getResponsabilidade());
+        tarefasModel.setNivelDemanda(tarefasDTO.getNivelDemanda());
 
         if (tarefasDTO.getAgentes() != null) {
             List<AgenteModel> agentes = tarefasDTO.getAgentes().stream()
@@ -25,9 +25,9 @@ public class TarefasMapper {
                         agente.setNome(dto.getNome());
                         agente.setEmail(dto.getEmail());
                         agente.setIdade(dto.getIdade());
-                        agente.setNivelDeDemanda(dto.getNivelDeDemanda());
+                        agente.setResponsabilidade(dto.getResponsabilidade());
                         agente.setUrlImage(dto.getUrlImage());
-                        agente.setTipoAgentes(TipoAgentes.valueOf(String.valueOf(dto.getTipoAgentes())));
+                        agente.setTipoAgentes(dto.getTipoAgentes());
                         agente.setTarefas(tarefasModel); // relação bidirecional
                         return agente;
                     }).toList();
@@ -42,7 +42,7 @@ public class TarefasMapper {
         TarefasDTO tarefasDTO = new TarefasDTO();
         tarefasDTO.setId(tarefasModel.getId());
         tarefasDTO.setDescricao(tarefasModel.getDescricao());
-        tarefasDTO.setResponsabilidade(tarefasModel.getResponsabilidade());
+        tarefasDTO.setNivelDemanda(tarefasModel.getNivelDemanda());
 
         if (tarefasModel.getAgentes() != null) {
             List<AgenteDTO> agentesDTO = tarefasModel.getAgentes().stream()
@@ -52,9 +52,9 @@ public class TarefasMapper {
                         dto.setNome(agente.getNome());
                         dto.setEmail(agente.getEmail());
                         dto.setIdade(agente.getIdade());
-                        dto.setNivelDeDemanda(agente.getNivelDeDemanda());
+                        dto.setResponsabilidade(agente.getResponsabilidade());
                         dto.setUrlImage(agente.getUrlImage());
-                        dto.setTipoAgentes(TipoAgentes.valueOf(agente.getTipoAgentes().toString()));
+                        dto.setTipoAgentes(agente.getTipoAgentes());
                         return dto;
                     }).toList();
             tarefasDTO.setAgentes(agentesDTO); // só setar os DTOs, nunca as entidades

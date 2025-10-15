@@ -2,6 +2,7 @@ package com.dev.kimura.CadastroAgentes.Agentes;
 
 import com.dev.kimura.CadastroAgentes.Enums.TipoAgentes;
 import com.dev.kimura.CadastroAgentes.Tarefas.TarefasModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,8 +43,12 @@ public class AgenteModel {
     @Column(name = "Tipo_Agente")
     private TipoAgentes tipoAgentes;
 
+    @Column(name = "responsabilidade")
+    private String responsabilidade;
+
     // ManyToOne é a notation para definir o relacionamento de N para 1
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "tarefas_id") //Definindo Chave Estrangeira
     private TarefasModel tarefas;
 }

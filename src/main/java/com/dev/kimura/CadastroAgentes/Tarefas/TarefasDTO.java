@@ -17,6 +17,6 @@ public class TarefasDTO {
 
     private Long id;
     private String descricao;
-    private String responsabilidade;
+    private String nivelDemanda;
     private List<AgenteDTO> agentes;
 }

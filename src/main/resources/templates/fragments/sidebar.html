@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li th:classappend="${paginaAtiva == 'tarefas' ? 'active' : ''}">
-                <a href="#">
+                <a th:href="@{/tarefas/ui/listarTarefas}">
                     <i class="fa-solid fa-list-check"></i> <span>Tarefas</span>
                 </a>
             </li>
