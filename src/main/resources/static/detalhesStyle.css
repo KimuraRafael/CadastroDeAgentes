@@ -14,38 +14,50 @@
 }
 
 .card-header {
+  position: relative;
   background: linear-gradient(135deg, #7A4FD5, #9D7DFF);
   border-radius: 12px 12px 0 0;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1.2rem;
-  padding: 1.5rem 2rem 1.5rem 0.8rem;
+  justify-content: center; /* centraliza o texto */
+  padding: 1.8rem 2rem;
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .profile-pic {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: 90px;
   height: 90px;
   border-radius: 50%;
   border: 3px solid #fff;
   object-fit: cover;
-  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card-header:has(.profile-pic) .header-info {
+  margin-left: 240px;
 }
 
 .header-info {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   text-align: left;
- }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 
 .header-info h1 {
   margin: 0;
@@ -54,14 +66,21 @@
   color: #fff;
 }
 
+
 .header-info .role {
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
   font-size: 1rem;
   color: #E5DFFF;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
-/* Conteúdo */
+
+.header-content:not(:has(img)) {
+  justify-content: center;
+  text-align: center;
+}
+
+/* CONTEÚDO */
 .card-content {
   padding: 25px;
 }
@@ -86,7 +105,7 @@ p {
   color: var(--texto);
 }
 
-/* Rodapé */
+
 .card-footer {
   text-align: right;
   padding: 15px 25px;

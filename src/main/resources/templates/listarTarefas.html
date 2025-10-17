@@ -36,7 +36,7 @@
                 <span th:if="${tarefa.agentes == null or #lists.isEmpty(tarefa.agentes)}">Não atribuído</span>
             </td>
             <td>
-                <a class="view" th:href="@{/tarefas/ui/listarTarefa/{id}(id=${tarefa.id})}">Ver</a>
+                <a class="view" th:href="@{/tarefas/ui/listarTarefa/{id}(id=${tarefa.id})}">Ver tarefa</a>
                 <a class="edit" th:href="@{/tarefas/ui/editarTarefa/{id}(id=${tarefa.id})}">Editar</a>
                 <a class="delete" th:href="@{/tarefas/ui/deletarTarefa/{id}(id=${tarefa.id})}">Excluir</a>
             </td>
