@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarefa</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/edicaoStyle.css">
+</head>
+<body>
+<h1>Editar Tarefa</h1>
+<div class="card">
+    <header class="card-header">
+        <div class="header-info">
+            <h2 th:text="'ID da Tarefa: ' + ${tarefa.id}"></h2>
+        </div>
+    </header>
+
+    <div class="card-content">
+        <form th:action="@{/tarefas/ui/atualizarTarefa/{id}(id=${tarefa.id})}"
+              th:object="${tarefa}" method="post">
+
+            <div class="form-group">
+                <label>Descrição:</label>
+                <input type="text" th:field="*{descricao}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nível de Demanda:</label>
+                <input type="text" th:field="*{nivelDemanda}" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Salvar</button>
+                <a th:href="@{/tarefas/ui/listarTarefas}" class="cancel-btn">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

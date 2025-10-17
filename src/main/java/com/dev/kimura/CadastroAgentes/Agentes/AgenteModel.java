@@ -37,8 +37,6 @@ public class AgenteModel {
     @Column(name = "Foto_Agente")
     private String urlImage;
 
-    @Column(name = "Nivel_Demanda")
-    private String nivelDeDemanda;
 
     @Column(name = "Tipo_Agente")
     private TipoAgentes tipoAgentes;

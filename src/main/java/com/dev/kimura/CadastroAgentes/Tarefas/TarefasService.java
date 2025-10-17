@@ -40,18 +40,29 @@ public class TarefasService {
         return tarefaMapper.map(tarefas);
     }
 
-    public TarefasDTO atualizaTarefas(Long id, TarefasDTO tarefaAlterada){
+    public TarefasDTO atualizaTarefas(Long id, TarefasDTO tarefaAlterada) {
+        Optional<TarefasModel> tarefaExistenteOpt = tarefasRepository.findById(id);
 
-        Optional<TarefasModel> tarefaExistente = tarefasRepository.findById(id);
-        if(tarefaExistente.isPresent()){
-            TarefasModel tarefaAtualizada = tarefaMapper.map(tarefaAlterada);
-            tarefaAtualizada.setId(id);
-            TarefasModel tarefaSalva = tarefasRepository.save(tarefaAtualizada);
-            return tarefaMapper.map(tarefaSalva);
+        if (tarefaExistenteOpt.isEmpty()) {
+            return null;
         }
 
-        return null;
+        TarefasModel tarefaExistente = tarefaExistenteOpt.get();
+
+        // Atualiza apenas os campos que vierem preenchidos
+        if (tarefaAlterada.getDescricao() != null) {
+            tarefaExistente.setDescricao(tarefaAlterada.getDescricao());
+        }
+
+        if (tarefaAlterada.getNivelDemanda() != null) {
+            tarefaExistente.setNivelDemanda(tarefaAlterada.getNivelDemanda());
+        }
+
+
+        TarefasModel tarefaSalva = tarefasRepository.save(tarefaExistente);
+        return tarefaMapper.map(tarefaSalva);
     }
+
     public void deletarTarefaPorId(Long id){
         tarefasRepository.deleteById(id);
     }

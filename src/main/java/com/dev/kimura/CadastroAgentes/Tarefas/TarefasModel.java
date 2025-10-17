@@ -23,7 +23,7 @@ public class TarefasModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "descricao_tarefa")
+    @Column(name = "descricao")
     private String descricao;
 
     @Column(name = "nivel_de_demanda")

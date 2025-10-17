@@ -1,67 +1,67 @@
-<!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Agente</title>
-    <link rel="stylesheet" href="/base.css">
-    <link rel="stylesheet" href="/edicaoStyle.css">
-</head>
-<body>
-<h1>Editar Agente</h1>
-<div class="card">
-    <header class="card-header">
-        <img class="profile-pic" th:src="${agente.urlImage}" alt="Foto do Agente">
-    </header>
+    <!DOCTYPE html>
+    <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Agente</title>
+        <link rel="stylesheet" href="/base.css">
+        <link rel="stylesheet" href="/edicaoStyle.css">
+    </head>
+    <body>
+    <h1>Editar Agente</h1>
+    <div class="card">
+        <header class="card-header">
+            <img class="profile-pic" th:src="${agente.urlImage}" alt="Foto do Agente">
+        </header>
 
-    <div class="card-content">
-        <!-- IMPORTANTE: precisa do th:object -->
-        <form th:action="@{/agentes/ui/atualizarAgente/{id}(id=${agente.id})}"
-              th:object="${agente}" method="post">
+        <div class="card-content">
+            <!-- IMPORTANTE: precisa do th:object -->
+            <form th:action="@{/agentes/ui/atualizarAgente/{id}(id=${agente.id})}"
+                  th:object="${agente}" method="post">
 
-            <div class="form-group">
-                <label>URL da Imagem de Perfil:</label>
-                <input type="text" th:field="*{urlImage}" required>
-            </div>
+                <div class="form-group">
+                    <label>URL da Imagem de Perfil:</label>
+                    <input type="text" th:field="*{urlImage}" required>
+                </div>
 
-            <div class="form-group">
-                <label>Nome:</label>
-                <input type="text" th:field="*{nome}" required>
-            </div>
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" th:field="*{nome}" required>
+                </div>
 
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" th:field="*{email}" required>
-            </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" th:field="*{email}" required>
+                </div>
 
-            <div class="form-group">
-                <label>Idade:</label>
-                <input type="number" th:field="*{idade}" required>
-            </div>
+                <div class="form-group">
+                    <label>Idade:</label>
+                    <input type="number" th:field="*{idade}" required>
+                </div>
 
-            <div class="form-group">
-                <label for="tipoAgentes">Tipo de Agente:</label>
-                <select id="tipoAgentes" th:field="*{tipoAgentes}" required>
-                    <option value="">-- Selecione um tipo --</option>
-                    <option th:each="tipo : ${T(com.dev.kimura.CadastroAgentes.Enums.TipoAgentes).values()}"
-                            th:value="${tipo}"
-                            th:text="${tipo}">
-                    </option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="tipoAgentes">Tipo de Agente:</label>
+                    <select id="tipoAgentes" th:field="*{tipoAgentes}" required>
+                        <option value="">-- Selecione um tipo --</option>
+                        <option th:each="tipo : ${T(com.dev.kimura.CadastroAgentes.Enums.TipoAgentes).values()}"
+                                th:value="${tipo}"
+                                th:text="${tipo}">
+                        </option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label>Responsabilidade:</label>
-                <input type="text" th:field="*{responsabilidade}" required>
-            </div>
+                <div class="form-group">
+                    <label>Responsabilidade:</label>
+                    <input type="text" th:field="*{responsabilidade}" required>
+                </div>
 
-            <div class="form-actions">
-                <button type="submit" class="save-btn">Salvar</button>
-                <a th:href="@{/agentes/ui/listarAgentes}" class="cancel-btn">Cancelar</a>
-            </div>
-        </form>
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Salvar</button>
+                    <a th:href="@{/agentes/ui/listarAgentes}" class="cancel-btn">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-</body>
-</html>
+    </body>
+    </html>
