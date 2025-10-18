@@ -70,16 +70,11 @@ public class TarefasControllerUI {
         return "redirect:/tarefas/ui/listarTarefas";
     }
 
-    @DeleteMapping("/deletarTarefa/{id}")
-    public ResponseEntity<String> deletarTarefaPorId(@PathVariable Long id) {
+    @GetMapping("/deletarTarefa/{id}")
+    public String deletarTarefaPorId(@PathVariable Long id) {
 
-
-        if (tarefasService.listarTarefaPorId(id) != null) {
-            tarefasService.deletarTarefaPorId(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Tarefa " + id + "Deletada com Sucesso!");
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarefa não existe");
-
+        tarefasService.deletarTarefaPorId(id);
+        return "redirect:/tarefas/ui/listarTarefas";
 
     }
 
