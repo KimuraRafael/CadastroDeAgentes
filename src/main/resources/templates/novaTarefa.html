@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Tarefa</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/edicaoStyle.css">
+</head>
+<body>
+<h1>Cadastrar Tarefa</h1>
+
+<div class="card">
+    <header class="card-header">
+    </header>
+
+    <div class="card-content">
+        <form th:action="@{/tarefas/ui/salvarTarefa}" method="post" th:object="${tarefa}">
+
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" th:field="*{descricao}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nivelDemanda">Nível de Demanda:</label>
+                <select id="nivelDemanda" th:field="*{nivelDemanda}" required>
+                    <option value="">-- Selecione o nível --</option>
+                    <option value="BAIXA">Baixa</option>
+                    <option value="MEDIA">Média</option>
+                    <option value="ALTA">Alta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Agentes disponíveis:</label>
+                <div class="checkbox-group">
+                    <div th:each="agente : ${agentesDisponiveis}" class="checkbox-item">
+                        <label>
+                            <input type="checkbox" name="agenteIds" th:value="${agente.id}">
+                            <span th:text="${agente.nome} + ' (' + ${agente.tipoAgentes} + ')'"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Salvar</button>
+                <a th:href="@{/tarefas/ui/listarTarefas}" class="cancel-btn">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

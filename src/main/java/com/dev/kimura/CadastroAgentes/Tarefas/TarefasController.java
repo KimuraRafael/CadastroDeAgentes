@@ -39,12 +39,14 @@ public class TarefasController {
 
 
     @PostMapping("/criarTarefa")
-    public ResponseEntity<String> criarTarefa(@RequestBody TarefasDTO tarefasDTO){
+    public ResponseEntity<String> criarTarefa(
+            @RequestBody TarefasDTO tarefasDTO,
+            @RequestParam(required = false) List<Long> agenteIds) {
 
-        TarefasDTO novaTarefa = tarefasService.criarTarefa(tarefasDTO);
+        TarefasDTO novaTarefa = tarefasService.criarTarefa(tarefasDTO, agenteIds);
+
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body("Tarefa criada com sucesso: " + "(ID):" + novaTarefa.getId() + " " + novaTarefa.getDescricao());
-
+                .body("Tarefa criada com sucesso: (ID): " + novaTarefa.getId() + " " + novaTarefa.getDescricao());
     }
 
     @PutMapping("/atualizaTarefa/{id}")

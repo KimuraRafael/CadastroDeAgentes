@@ -8,7 +8,33 @@
     <link rel="stylesheet" href="/listagemStyle.css">
 </head>
 <body>
+
+
 <section layout:fragment="content">
+
+    <div id="toast-container">
+        <div class="toast" th:if="${mensagemSucesso}">
+            <span th:text="${mensagemSucesso}"></span>
+            <button class="close-btn" onclick="this.parentElement.remove();">&times;</button>
+        </div>
+        <div class="toast error" th:if="${mensagemErro}">
+            <span th:text="${mensagemErro}"></span>
+            <button class="close-btn" onclick="this.parentElement.remove();">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.toast').forEach(toast => {
+                // Suma automático após 3 segundos
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000);
+            });
+        });
+    </script>
+
     <h1>Lista de Tarefas</h1>
 
     <div class="list-header">
@@ -20,7 +46,7 @@
         <tr>
             <th>Código Tarefa</th>
             <th>Descrição</th>
-            <th>Nivel de Demanda</th>
+            <th>Nível de Demanda</th>
             <th>Equipe Responsável</th>
             <th>Ações</th>
         </tr>
@@ -31,12 +57,18 @@
             <td th:text="${tarefa.descricao}"></td>
             <td th:text="${tarefa.nivelDemanda}"></td>
             <td>
-                <span th:if="${tarefa.agentes != null and #lists.size(tarefa.agentes) > 0}"
-                      th:text="${#strings.arrayJoin(tarefa.agentes.^[nome], ', ')}"></span>
+                <!-- Se houver agentes -->
+                <span th:if="${tarefa.agentes != null and !#lists.isEmpty(tarefa.agentes)}">
+                    <span th:each="agente, iterStat : ${tarefa.agentes}">
+                        <span th:text="${agente.nome}"></span>
+                        <span th:if="${!iterStat.last}">, </span>
+                    </span>
+                </span>
+                <!-- Caso contrário -->
                 <span th:if="${tarefa.agentes == null or #lists.isEmpty(tarefa.agentes)}">Não atribuído</span>
             </td>
             <td>
-                <a class="view" th:href="@{/tarefas/ui/listarTarefa/{id}(id=${tarefa.id})}">Ver tarefa</a>
+                <a class="view" th:href="@{/tarefas/ui/listarTarefa/{id}(id=${tarefa.id})}">Ver detalhes</a>
                 <a class="edit" th:href="@{/tarefas/ui/editarTarefa/{id}(id=${tarefa.id})}">Editar</a>
                 <a class="delete" th:href="@{/tarefas/ui/deletarTarefa/{id}(id=${tarefa.id})}">Excluir</a>
             </td>

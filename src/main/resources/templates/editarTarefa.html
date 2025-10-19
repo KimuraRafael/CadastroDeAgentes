@@ -17,17 +17,30 @@
     </header>
 
     <div class="card-content">
-        <form th:action="@{/tarefas/ui/atualizarTarefa/{id}(id=${tarefa.id})}"
-              th:object="${tarefa}" method="post">
+        <form th:action="@{/tarefas/ui/atualizarTarefa/{id}(id=${tarefa.id})}" th:object="${tarefa}" method="post">
 
             <div class="form-group">
                 <label>Descrição:</label>
-                <input type="text" th:field="*{descricao}" required>
+                <input type="text" th:field="*{descricao}" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label>Agentes:</label>
+                <div th:each="ag : ${todosAgentes}">
+                    <input type="checkbox" th:value="${ag.id}" th:field="*{agenteIds}"
+                           th:checked="${tarefa.agenteIds.contains(ag.id)}"/>
+                    <span th:text="${ag.nome}"></span>
+                </div>
             </div>
 
             <div class="form-group">
                 <label>Nível de Demanda:</label>
-                <input type="text" th:field="*{nivelDemanda}" required>
+                <select id="nivelDemanda" th:field="*{nivelDemanda}" required>
+                    <option value="">-- Selecione um nível --</option>
+                    <option value="BAIXA" th:selected="${tarefa.nivelDemanda=='BAIXA'}">Baixa</option>
+                    <option value="MEDIA" th:selected="${tarefa.nivelDemanda=='MEDIA'}">Média</option>
+                    <option value="ALTA" th:selected="${tarefa.nivelDemanda=='ALTA'}">Alta</option>
+                </select>
             </div>
 
             <div class="form-actions">
@@ -35,8 +48,8 @@
                 <a th:href="@{/tarefas/ui/listarTarefas}" class="cancel-btn">Cancelar</a>
             </div>
         </form>
+
     </div>
 </div>
-
 </body>
 </html>

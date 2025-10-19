@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,5 +19,7 @@ public class TarefasDTO {
     private Long id;
     private String descricao;
     private String nivelDemanda;
-    private List<AgenteDTO> agentes;
+    private List<AgenteDTO> agentes = new ArrayList<>();
+    private List<Long> agenteIds = new ArrayList<>();
+
 }

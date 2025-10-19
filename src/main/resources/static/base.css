@@ -69,3 +69,47 @@ img {
   object-fit: cover;
   border: 2px solid var(--roxo-escuro);
 }
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Toast padrão */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background-color: #4CAF50; /* verde sucesso */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    font-weight: bold;
+}
+
+/* Toast de erro */
+.toast.error {
+    background-color: #f44336; /* vermelho */
+}
+
+
+
+
+/* Botão de fechar */
+.close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: #ccc;
+}
